@@ -1,0 +1,61 @@
+name: LaTeX
+
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+    compile:
+        name: "Compile source files"
+        runs-on: ubuntu-latest
+        env:
+            SRC: slides
+            PDF: slides.pdf
+
+        steps:
+          - name: "Checkout sources"
+            uses: actions/checkout@v3
+
+          - name: "Install TeX distribution"
+            run: |
+                sudo apt-get update
+                sudo apt-get install pandoc pandoc-citeproc
+
+          - name: "Compile LaTeX"
+            working-directory: .
+            run: |
+                make build
+
+          - name: "Prepare artifacts directory"
+            run: mkdir -p artifacts && mv build/*.pdf ./artifacts/
+
+          - name: "Upload artifacts"
+            uses: actions/upload-artifact@v3
+            with:
+                path: ./artifacts
+
+    deploy:
+        name: "Deploy PDF to GitHub Pages"
+        needs: [compile]
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: "Checkout sources"
+            uses: actions/checkout@v3
+
+          - name: "Download artifacts"
+            uses: actions/download-artifact@v3
+            with:
+                path: artifacts
+
+          - name: "Prepare deployment directory"
+            run: mkdir -p deploy && mv artifacts/*/* deploy
+
+          - name: "Deploy to GitHub Pages"
+            uses: peaceiris/actions-gh-pages@v3
+            if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+            with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./deploy
+                publish_branch: gh-pages
+                force_orphan: true
