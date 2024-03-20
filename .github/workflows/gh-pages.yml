@@ -30,7 +30,7 @@ jobs:
             run: |
                 mkdir -p artifacts
                 mv build/*.pdf ./artifacts/
-                mv build/README.md ./artifacts/
+                mv build/index.html ./artifacts/
 
           - name: "Upload artifacts"
             uses: actions/upload-artifact@v3

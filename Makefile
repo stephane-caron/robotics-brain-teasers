@@ -3,7 +3,7 @@
 
 SRC = $(filter-out README.md,$(wildcard *.md))
 BIB = references.bib
-BUILDDIR = build/
+BUILDDIR = build
 
 DEPS = $(wildcard *.sty *.tex *.jpg *.png)
 TARGET = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
@@ -24,8 +24,12 @@ PARAMETERS += --bibliography=references.bib
 PARAMETERS += -M link-citations=true
 
 all: $(TARGET)
-	@rm -f $(BUILDDIR)/README.md
-	(cd $(BUILDDIR); for f in *.pdf; do echo "- [$$f]($$f)" >> README.md; done)
+	@mkdir -p $(BUILDDIR)
+	@cp -f "$(CURDIR)/header.html" "$(BUILDDIR)/index.html"
+	@(cd $(BUILDDIR); for f in *.pdf; do \
+		echo "            <li><a href=\"$$f\">$$f</a></li>" >> index.html; \
+		done)
+	@cat "$(CURDIR)/footer.html" >> $(BUILDDIR)/index.html
 
 $(BUILDDIR)%.pdf : %.md $(DEPS)
 	@mkdir -p $(BUILDDIR) # Make sure build dir exists
