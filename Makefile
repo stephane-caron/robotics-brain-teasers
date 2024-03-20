@@ -24,6 +24,8 @@ PARAMETERS += --bibliography=references.bib
 PARAMETERS += -M link-citations=true
 
 all: $(TARGET)
+	@rm -f $(BUILDDIR)/README.md
+	(cd $(BUILDDIR); for f in *.pdf; do echo "- [$$f]($$f)" >> README.md; done)
 
 $(BUILDDIR)%.pdf : %.md $(DEPS)
 	@mkdir -p $(BUILDDIR) # Make sure build dir exists
@@ -31,4 +33,5 @@ $(BUILDDIR)%.pdf : %.md $(DEPS)
 
 clean:
 	@rm -f $(TARGET)
+	@rm -f $(BUILDDIR)/README.md
 	@rmdir $(BUILDDIR)
