@@ -3,7 +3,7 @@
 
 SRC = $(filter-out README.md,$(wildcard *.md))
 BIB = references.bib
-BUILDDIR = build
+BUILDDIR = build/
 
 DEPS = $(wildcard *.sty *.tex *.jpg *.png)
 TARGET = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
@@ -12,7 +12,7 @@ TARGET = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
 PARAMETERS = --pdf-engine=xelatex
 
 # Custom LaTeX header
-PARAMETERS += --include-in-header=header.tex
+PARAMETERS += --include-in-header=templates/header.tex
 
 # Bibliography
 PARAMETERS += --bibliography=references.bib
@@ -25,17 +25,17 @@ PARAMETERS += -M link-citations=true
 
 all: $(TARGET)
 	@mkdir -p $(BUILDDIR)
-	@cp -f "$(CURDIR)/header.html" "$(BUILDDIR)/index.html"
+	@cp -f "$(CURDIR)/templates/header.html" "$(BUILDDIR)/index.html"
 	@(cd $(BUILDDIR); for f in *.pdf; do \
 		echo "            <li><a href=\"$$f\">$$f</a></li>" >> index.html; \
 		done)
-	@cat "$(CURDIR)/footer.html" >> $(BUILDDIR)/index.html
+	@cat "$(CURDIR)/templates/footer.html" >> $(BUILDDIR)/index.html
 
 $(BUILDDIR)%.pdf : %.md $(DEPS)
 	@mkdir -p $(BUILDDIR) # Make sure build dir exists
 	pandoc $(PARAMETERS) $< -o $@
 
 clean:
+	@rm -f $(BUILDDIR)/index.html
 	@rm -f $(TARGET)
-	@rm -f $(BUILDDIR)/README.md
 	@rmdir $(BUILDDIR)
