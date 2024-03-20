@@ -14,16 +14,11 @@ PDF_TARGETS = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
 # HTML5 settings
 HTML_PARAMETERS = --katex= --standalone --to=html5
 
-# Change LaTeX engine
+# PDF settings
 PDF_PARAMETERS = --pdf-engine=xelatex
-
-# Custom LaTeX header
+PDF_PARAMETERS += -V "fontsize:12pt"
 PDF_PARAMETERS += --include-in-header=templates/header.tex
-
-# Bibliography
 PDF_PARAMETERS += --bibliography=references.bib
-
-# Table of contents
 # PDF_PARAMETERS += --toc
 
 # Link citations with pandoc-citeproc
