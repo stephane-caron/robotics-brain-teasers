@@ -27,7 +27,10 @@ jobs:
                 make
 
           - name: "Prepare artifacts directory"
-            run: mkdir -p artifacts && mv build/*.pdf ./artifacts/
+            run: |
+                mkdir -p artifacts
+                mv build/*.pdf ./artifacts/
+                mv build/README.md ./artifacts/
 
           - name: "Upload artifacts"
             uses: actions/upload-artifact@v3
