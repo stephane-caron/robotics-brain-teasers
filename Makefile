@@ -1,45 +1,56 @@
 # Adapted from https://blog.nanax.fr/post/2018-05-04-pandoc-latex/
 # Copyright 2016–2024 erdnaxe, licensed under a CC-BY-4.0 International License
 
+SHELL=/bin/bash
+
 SRC = $(filter-out README.md,$(wildcard *.md))
 BIB = references.bib
 BUILDDIR = build/
 
 DEPS = $(wildcard *.sty *.tex *.jpg *.png)
-TARGET = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
+HTML_TARGETS = $(addprefix $(BUILDDIR),$(addsuffix .html,$(SRC:.md=)))
+PDF_TARGETS = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
+
+# Compile to HTML5
+HTML_PARAMETERS = --standalone --to=html5
 
 # Change LaTeX engine
-PARAMETERS = --pdf-engine=xelatex
+PDF_PARAMETERS = --pdf-engine=xelatex
 
 # Custom LaTeX header
-PARAMETERS += --include-in-header=templates/header.tex
+PDF_PARAMETERS += --include-in-header=templates/header.tex
 
 # Bibliography
-PARAMETERS += --bibliography=references.bib
+PDF_PARAMETERS += --bibliography=references.bib
 
 # Table of contents
-# PARAMETERS += --toc
+# PDF_PARAMETERS += --toc
 
 # Link citations with pandoc-citeproc
-PARAMETERS += -M link-citations=true
+PDF_PARAMETERS += -M link-citations=true
 
-all: builddir $(TARGET) index
+all: builddir $(HTML_TARGETS) $(PDF_TARGETS) index
 
 builddir:
-	@mkdir -p $(BUILDDIR)
+	mkdir -p $(BUILDDIR)
+	cp -r figures/ $(BUILDDIR)
 
-index: builddir $(TARGET)
+index: builddir $(PDF_TARGETS)
 	@cp -f "$(CURDIR)/templates/header.html" "$(BUILDDIR)/index.html"
 	@(cd $(BUILDDIR); for f in *.pdf; do \
-		echo "            <li><a href=\"$$f\">$$f</a></li>" >> index.html; \
+		echo "            <li>$${f/.pdf/}: <a href=\"$${f/.pdf/.html}\">HTML</a>, <a href=\"$$f\">PDF</a></li>" >> index.html; \
 		done)
 	@cat "$(CURDIR)/templates/footer.html" >> $(BUILDDIR)/index.html
 
+$(BUILDDIR)%.html : %.md $(DEPS)
+	@mkdir -p $(BUILDDIR) # Make sure build dir exists
+	pandoc $(HTML_PARAMETERS) $< -o $@
+
 $(BUILDDIR)%.pdf : %.md $(DEPS)
 	@mkdir -p $(BUILDDIR) # Make sure build dir exists
-	pandoc $(PARAMETERS) $< -o $@
+	pandoc $(PDF_PARAMETERS) $< -o $@
 
 clean:
 	@rm -f $(BUILDDIR)/index.html
-	@rm -f $(TARGET)
+	@rm -f $(PDF_TARGETS)
 	@rmdir $(BUILDDIR)
