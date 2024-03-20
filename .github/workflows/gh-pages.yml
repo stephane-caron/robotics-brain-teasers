@@ -32,6 +32,8 @@ jobs:
                 mv build/*.html ./artifacts/
                 mv build/*.pdf ./artifacts/
                 mv build/figures ./artifacts/
+                mv build/katex.min.css ./artifacts/
+                mv build/katex.min.js ./artifacts/
 
           - name: "Upload artifacts"
             uses: actions/upload-artifact@v3

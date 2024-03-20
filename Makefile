@@ -11,8 +11,8 @@ DEPS = $(wildcard *.sty *.tex *.jpg *.png)
 HTML_TARGETS = $(addprefix $(BUILDDIR),$(addsuffix .html,$(SRC:.md=)))
 PDF_TARGETS = $(addprefix $(BUILDDIR),$(addsuffix .pdf,$(SRC:.md=)))
 
-# Compile to HTML5
-HTML_PARAMETERS = --standalone --to=html5
+# HTML5 settings
+HTML_PARAMETERS = --katex= --standalone --to=html5
 
 # Change LaTeX engine
 PDF_PARAMETERS = --pdf-engine=xelatex
@@ -36,6 +36,8 @@ builddir:
 	cp -r figures/ $(BUILDDIR)
 
 index: builddir $(PDF_TARGETS)
+	@cp -f "$(CURDIR)/templates/katex.min.css" "$(BUILDDIR)/"
+	@cp -f "$(CURDIR)/templates/katex.min.js" "$(BUILDDIR)/"
 	@cp -f "$(CURDIR)/templates/header.html" "$(BUILDDIR)/index.html"
 	@(cd $(BUILDDIR); for f in *.pdf; do \
 		echo "            <li>$${f/.pdf/}: <a href=\"$${f/.pdf/.html}\">HTML</a>, <a href=\"$$f\">PDF</a></li>" >> index.html; \
