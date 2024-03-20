@@ -24,7 +24,7 @@ jobs:
           - name: "Compile LaTeX"
             working-directory: .
             run: |
-                make build
+                make
 
           - name: "Prepare artifacts directory"
             run: mkdir -p artifacts && mv build/*.pdf ./artifacts/
