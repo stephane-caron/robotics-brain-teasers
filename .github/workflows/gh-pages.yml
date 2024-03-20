@@ -38,6 +38,8 @@ jobs:
         name: "Deploy PDF to GitHub Pages"
         needs: [compile]
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
 
         steps:
           - name: "Checkout sources"
