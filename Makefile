@@ -1,7 +1,7 @@
 # Adapted from https://blog.nanax.fr/post/2018-05-04-pandoc-latex/
 # Copyright 2016–2024 erdnaxe, licensed under a CC-BY-4.0 International License
 
-SRC = $(wildcard *.md)
+SRC = $(filter-out README.md,$(wildcard *.md))
 BIB = references.bib
 BUILDDIR = build/
 
