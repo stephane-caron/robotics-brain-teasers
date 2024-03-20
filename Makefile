@@ -23,8 +23,12 @@ PARAMETERS += --bibliography=references.bib
 # Link citations with pandoc-citeproc
 PARAMETERS += -M link-citations=true
 
-all: $(TARGET)
+all: builddir $(TARGET) index
+
+builddir:
 	@mkdir -p $(BUILDDIR)
+
+index: builddir $(TARGET)
 	@cp -f "$(CURDIR)/templates/header.html" "$(BUILDDIR)/index.html"
 	@(cd $(BUILDDIR); for f in *.pdf; do \
 		echo "            <li><a href=\"$$f\">$$f</a></li>" >> index.html; \
