@@ -19,7 +19,7 @@ jobs:
           - name: "Install TeX distribution"
             run: |
                 sudo apt-get update
-                sudo apt-get install pandoc pandoc-citeproc texlive-xetex
+                sudo apt-get install pandoc pandoc-citeproc texlive-xetex librsvg2-bin
 
           - name: "Compile LaTeX"
             working-directory: .
