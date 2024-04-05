@@ -16,6 +16,7 @@ HTML_PARAMETERS = --katex= --standalone --to=html5
 
 # PDF settings
 PDF_PARAMETERS = --pdf-engine=xelatex
+PDF_PARAMETERS += -V "documentclass:article"
 PDF_PARAMETERS += -V "fontsize:12pt"
 PDF_PARAMETERS += --include-in-header=templates/header.tex
 PDF_PARAMETERS += --bibliography=references.bib
