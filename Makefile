@@ -35,7 +35,7 @@ index: builddir $(PDF_TARGETS)
 	@cp -f "$(CURDIR)/templates/katex.min.js" "$(BUILDDIR)/"
 	@cp -f "$(CURDIR)/templates/header.html" "$(BUILDDIR)/index.html"
 	@(cd $(BUILDDIR); for f in *.pdf; do \
-		echo "            <li>$${f/.pdf/}: <a href=\"$${f/.pdf/.html}\">HTML</a>, <a href=\"$$f\">PDF</a></li>" >> index.html; \
+		echo "            <li>$${f/.pdf/}: <a href=\"$$f\">PDF</a> (<a href=\"$${f/.pdf/.html}\">HTML</a>)</li>" >> index.html; \
 		done)
 	@cat "$(CURDIR)/templates/footer.html" >> $(BUILDDIR)/index.html
 
