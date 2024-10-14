@@ -47,6 +47,4 @@ $(BUILDDIR)%.pdf : %.md $(DEPS)
 	pandoc $(PDF_PARAMETERS) $< -o $@
 
 clean:
-	@rm -f $(BUILDDIR)/index.html
-	@rm -f $(PDF_TARGETS)
-	@rmdir $(BUILDDIR)
+	rm -rf $(BUILDDIR)
