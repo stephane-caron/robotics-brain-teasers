@@ -4,7 +4,7 @@ title: Flexible rod
 
 Consider the flexible rod depicted in (A):
 
-![Flexible rod and its discretization.](figures/01-flexible-rod.svg){#fig:flexible-rod width=60%}
+![Flexible rod and its discretization.](figures/flexible-rod.svg){#fig:flexible-rod width=60%}
 
 We discretize it into $N$ segments, as shown in (B), with $\ell_i$ the length of segment $i$ and $\theta_i$ the angle it makes with its parent segment (or the vertical for $\theta_1$).
 
