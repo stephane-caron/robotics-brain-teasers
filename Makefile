@@ -19,8 +19,6 @@ PDF_PARAMETERS = --pdf-engine=xelatex
 PDF_PARAMETERS += -V "documentclass:article"
 PDF_PARAMETERS += -V "fontsize:12pt"
 PDF_PARAMETERS += --include-in-header=templates/header.tex
-PDF_PARAMETERS += --bibliography=references.bib
-# PDF_PARAMETERS += --toc
 
 # Link citations with pandoc-citeproc
 PDF_PARAMETERS += -M link-citations=true
