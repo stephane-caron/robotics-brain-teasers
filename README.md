@@ -1,6 +1,6 @@
-# Test problems
+# Robotics problems
 
-Problem index: https://learning-robotics.github.io/test-problems/
+Problem index: https://learning-robotics.github.io/problems/
 
 ## Usage
 
