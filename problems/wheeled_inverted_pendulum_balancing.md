@@ -2,7 +2,9 @@
 title: Balancing a wheeled inverted pendulum
 ---
 
-Consider the wheeled inverted pendulum decpited in the following figure:
+**This problem is still work in progress.**
+
+Consider the wheeled inverted pendulum decpited in Figure \ref{fig:wheeled-inverted-pendulum}:
 
 ![Flexible rod and its discretization.](figures/wheeled-inverted-pendulum.svg){#fig:wheeled-inverted-pendulum width=60%}
 

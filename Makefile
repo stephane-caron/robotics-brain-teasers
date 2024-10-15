@@ -36,10 +36,10 @@ index: builddir $(PDF_TARGETS)
 		done)
 	cat "$(CURDIR)/templates/footer.html" >> $(BUILDDIR)/index.html
 
-$(BUILDDIR)/%.html : %.md $(DEPS) builddir
+$(BUILDDIR)/%.html : %.md $(DEPS)
 	pandoc $(HTML_PARAMETERS) $< -o $@
 
-$(BUILDDIR)/%.pdf : %.md $(DEPS) builddir
+$(BUILDDIR)/%.pdf : %.md $(DEPS)
 	pandoc $(PDF_PARAMETERS) $< -o $@
 
 clean:
