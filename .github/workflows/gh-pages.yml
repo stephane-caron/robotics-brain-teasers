@@ -29,11 +29,12 @@ jobs:
           - name: "Prepare artifacts directory"
             run: |
                 mkdir -p artifacts
-                mv build/*.html ./artifacts/
-                mv build/*.pdf ./artifacts/
                 mv build/figures ./artifacts/
+                mv build/index.html ./artifacts/
                 mv build/katex.min.css ./artifacts/
                 mv build/katex.min.js ./artifacts/
+                mv build/problems/*.html ./artifacts/
+                mv build/problems/*.pdf ./artifacts/
 
           - name: "Upload artifacts"
             uses: actions/upload-artifact@v3
