@@ -1,6 +1,8 @@
 # Robotics problems
 
-Problem index: https://learning-robotics.github.io/problems/
+[![Problems](https://img.shields.io/github/actions/workflow/status/Learning-Robotics/problems/gh-pages.yml?branch=main&label=problems)](https://learning-robotics.github.io/problems/)
+
+A collection of robotics problems, for learning and for fun.
 
 ## Usage
 
