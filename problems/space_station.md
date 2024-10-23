@@ -1,6 +1,6 @@
----
-title: Space station
----
+# Space station
+
+*Author:* [\@stephane-caron](https://github.com/stephane-caron)
 
 **This problem is still work in progress.**
 

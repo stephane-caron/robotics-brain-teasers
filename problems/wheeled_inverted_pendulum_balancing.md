@@ -1,6 +1,6 @@
----
-title: Balancing a wheeled inverted pendulum
----
+# Balancing a wheeled inverted pendulum
+
+*Author:* [\@stephane-caron](https://github.com/stephane-caron)
 
 **This problem is still work in progress.**
 
