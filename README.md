@@ -8,7 +8,7 @@ An [online collection](https://learning-robotics.github.io/brain-teasers/) of ro
 
 New problems are welcome! To add one:
 
-- Write the problem in a Markdown file such as ``problems/foobar.md``
-- Check it locally by running ``make`` then ``make open``
+- Write the problem as a Markdown file in the `problems` directory
+- Check it locally by running `make` then `make open`
 - Commit the problem and push it
 - It is then compiled and added to the online collection
