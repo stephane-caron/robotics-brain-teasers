@@ -2,7 +2,7 @@
 # Copyright 2016–2024 erdnaxe, licensed under a CC-BY-4.0 International License
 # Copyright 2024 Inria
 
-SHELL=/bin/zsh
+SHELL=/bin/bash
 
 SRC = $(wildcard problems/*.md)
 BIB = references.bib
@@ -48,4 +48,4 @@ open:
 	firefox $(BUILDDIR)/index.html
 
 watch:
-	while [ 1 ]; do; inotifywait $(SRC) && make build; done
+	while true; do inotifywait $(SRC) && make build; done
