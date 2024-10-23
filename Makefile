@@ -44,3 +44,6 @@ $(BUILDDIR)/%.pdf : %.md $(DEPS)
 
 clean:
 	rm -rf $(BUILDDIR)
+
+open:
+	firefox $(BUILDDIR)/index.html
