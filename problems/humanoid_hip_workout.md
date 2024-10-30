@@ -14,4 +14,4 @@ Let us denote by $m_1$ and $G_1$ the total mass and center of gravity of the rob
 
 We assume that all forces between the floor and the back of the robot are exerted over a horizontal surface located at an altitude $\delta z$ below the center of gravity $G_1$.
 
-- **Question 2:** *What is the largest angle $\varphi$ at which the robot can lift its legs while keeping its back flat on the floor?*
+- **Question 2:** *What is the critical angle $\varphi_{\mathrm{tilt}}$ beyond which the robot cannot keep its back flat on the floor?*
