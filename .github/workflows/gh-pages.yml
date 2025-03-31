@@ -7,7 +7,7 @@ on:
 jobs:
     compile:
         name: "Compile source files"
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         env:
             SRC: slides
             PDF: slides.pdf
@@ -43,7 +43,7 @@ jobs:
     deploy:
         name: "Deploy PDF to GitHub Pages"
         needs: [compile]
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         permissions:
             contents: write
 
