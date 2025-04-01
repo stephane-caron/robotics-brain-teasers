@@ -2,7 +2,7 @@
 
 <img src="https://github.com/user-attachments/assets/efbdcf1f-2fdb-491d-9897-ffaee07e9be6" height=200 align="right">
 
-[![Problems](https://img.shields.io/github/actions/workflow/status/stephane-caron/robotics-brain-teasers/gh-pages.yml?branch=main&label=problems)](https://stephane-caron.github.io/robotics-brain-teasers/)
+[![publish](https://img.shields.io/github/actions/workflow/status/stephane-caron/robotics-brain-teasers/gh-pages.yml?branch=main&label=publish)](https://stephane-caron.github.io/robotics-brain-teasers/)
 
 An [online collection](https://stephane-caron.github.io/robotics-brain-teasers/) of robotics problems, for learning and for fun.
 
