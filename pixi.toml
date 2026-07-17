@@ -1,0 +1,28 @@
+[workspace]
+authors = ["Stéphane Caron <stephane.caron@normalesup.org>"]
+channels = ["conda-forge"]
+name = "robotics-brain-teasers"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+build = { cmd = "python3 tools/build.py", description = "Compile all problem PDFs and the HTML index into build/" }
+clean = { cmd = "rm -rf build", description = "Remove the build/ directory" }
+html = { cmd = "python3 tools/build.py --html", description = "Render standalone HTML versions of the problems into build/" }
+lint = { depends-on = ["readme-check", "lint-spelling", "lint-links"], description = "Check README freshness, spelling, and links" }
+lint-links = { cmd = "lychee --offline README.md CONTRIBUTING.md", description = "Check relative links in the docs" }
+lint-spelling = { cmd = "codespell", description = "Spell-check sources" }
+open = { cmd = "xdg-open build/index.html", description = "Open the built index in a browser" }
+readme = { cmd = "python3 tools/gen_readme.py", description = "Regenerate the README problem list from front matter and data/" }
+readme-check = { cmd = "python3 tools/gen_readme.py --check", description = "Fail if README.md is out of date" }
+watch = { cmd = "watchfiles 'python3 tools/build.py' problems templates figures", description = "Rebuild on save" }
+
+[dependencies]
+codespell = ">=2.4.3,<3"
+librsvg = ">=2.62.3,<3"
+lychee = ">=0.24.2,<0.25"
+pandoc = ">=3.10,<4"
+python = ">=3.11"
+pyyaml = ">=6.0.3,<7"
+tectonic = ">=0.16.9,<0.17"
+watchfiles = ">=1.2.0,<2"
