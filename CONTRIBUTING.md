@@ -15,7 +15,7 @@ All commands below are run through `pixi run` so they use that environment.
 ## Adding a problem
 
 1. **Add yourself to `data/authors.yaml`** (once), with your full name and GitHub profile URL, under a short `author-id`.
-2. **Copy `templates/problem_template.md`** to `problems/NN_your_problem.md`.  The `NN_` numeric prefix sets the ordering; use the next free number.
+2. **Copy `templates/problem.md`** to `problems/NN_your_problem.md`.  The `NN_` numeric prefix sets the ordering; use the next free number.
 3. **Fill in the front matter** at the top of the file:
    - `title:` the problem title.
    - `author:` your id from `data/authors.yaml` (or a list of ids).
