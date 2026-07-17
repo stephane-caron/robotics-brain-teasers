@@ -296,3 +296,6 @@ TSWLatexianTemp*
 
 # xwatermark package
 *.xwm
+# pixi environments
+.pixi/*
+!.pixi/config.toml
