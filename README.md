@@ -8,8 +8,8 @@ An [online collection](https://stephane-caron.github.io/robotics-brain-teasers/)
 
 ## Problems
 
-- [Flexible rod](https://stephane-caron.github.io/robotics-brain-teasers/problems/flexible_rod.pdf): can you solve forward kinematics for a flexible link?
-- [Humanoid hip workout](https://stephane-caron.github.io/robotics-brain-teasers/problems/humanoid_hip_workout.pdf): how to keep the back flat on the floor under a hip torque constraint?
+- [Flexible rod](problems/flexible_rod.md) ([PDF](https://stephane-caron.github.io/robotics-brain-teasers/problems/flexible_rod.pdf))
+- [Humanoid hip workout](problems/humanoid_hip_workout.md) ([PDF](https://stephane-caron.github.io/robotics-brain-teasers/problems/humanoid_hip_workout.pdf))
 
 ## Contributing
 
