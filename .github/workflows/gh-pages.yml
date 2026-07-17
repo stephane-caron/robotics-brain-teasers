@@ -14,54 +14,42 @@ jobs:
           - name: "Checkout sources"
             uses: actions/checkout@v4
 
-          - name: "Install pixi"
-            run: |
-                sudo apt-get update
-                sudo apt-get install librsvg2-bin pandoc pandoc-citeproc texlive-xetex
+          - name: "Setup Pixi"
+            uses: prefix-dev/setup-pixi@v0.9.1
+            with:
+                cache: true
 
-          - name: "Compile LaTeX"
-            working-directory: .
-            run: |
-                make
+          - name: "Lint"
+            run: pixi run lint
 
-          - name: "Prepare artifacts directory"
-            run: |
-                mkdir -p artifacts
-                mv build/figures ./artifacts/
-                mv build/index.html ./artifacts/
-                mv build/katex.min.css ./artifacts/
-                mv build/katex.min.js ./artifacts/
-                mv build/problems ./artifacts/
+          - name: "Build PDFs and index"
+            run: pixi run build
 
-          - name: "Upload artifacts"
+          - name: "Upload site artifact"
             uses: actions/upload-artifact@v4
             with:
-                path: ./artifacts
+                name: site
+                path: build
 
     deploy:
-        name: "Deploy PDF to GitHub Pages"
-        needs: [compile]
-        runs-on: ubuntu-22.04
+        name: "Deploy to GitHub Pages"
+        needs: [build]
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        runs-on: ubuntu-24.04
         permissions:
             contents: write
 
         steps:
-          - name: "Checkout sources"
-            uses: actions/checkout@v4
-
-          - name: "Download artifacts"
+          - name: "Download site artifact"
             uses: actions/download-artifact@v4
             with:
-                path: artifacts
-
-          - name: "Prepare deployment directory"
-            run: mkdir -p deploy && mv artifacts/*/* deploy
+                name: site
+                path: build
 
           - name: "Deploy to GitHub Pages"
             uses: peaceiris/actions-gh-pages@v3
-            if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
             with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./deploy
+                publish_dir: ./build
                 publish_branch: gh-pages
                 force_orphan: true
