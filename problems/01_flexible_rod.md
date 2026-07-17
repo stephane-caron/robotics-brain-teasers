@@ -1,3 +1,7 @@
+---
+author: stephane-caron
+difficulty: graduate
+---
 # Flexible rod
 
 *Author:* [\@stephane-caron](https://github.com/stephane-caron)

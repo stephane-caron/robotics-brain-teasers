@@ -13,8 +13,8 @@ lint = { depends-on = ["readme-check", "lint-spelling", "lint-links"], descripti
 lint-links = { cmd = "lychee --offline README.md CONTRIBUTING.md", description = "Check relative links in the docs" }
 lint-spelling = { cmd = "codespell", description = "Spell-check sources" }
 open = { cmd = "xdg-open build/index.html", description = "Open the built index in a browser" }
-readme = { cmd = "python3 tools/gen_readme.py", description = "Regenerate the README problem list from front matter and data/" }
-readme-check = { cmd = "python3 tools/gen_readme.py --check", description = "Fail if README.md is out of date" }
+readme = { cmd = "python3 tools/generate_readme.py", description = "Regenerate the README problem list from front matter and data/" }
+readme-check = { cmd = "python3 tools/generate_readme.py --check", description = "Fail if README.md is out of date" }
 watch = { cmd = "watchfiles 'python3 tools/build.py' problems templates figures", description = "Rebuild on save" }
 
 [dependencies]

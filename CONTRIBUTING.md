@@ -17,9 +17,9 @@ All commands below are run through `pixi run` so they use that environment.
 1. **Add yourself to `data/authors.yaml`** (once), with your full name and GitHub profile URL, under a short `author-id`.
 2. **Copy `templates/problem_template.md`** to `problems/NN_your_problem.md`.  The `NN_` numeric prefix sets the ordering; use the next free number.
 3. **Fill in the front matter** at the top of the file:
-   - `author:` your id from `data/authors.yaml`.
-   - `difficulty:` one id from `data/difficulties.yaml`.
-4. **Write the problem.** You can follow the existing structure.
+   - `title:` the problem title.
+   - `author:` your id from `data/authors.yaml` (or a list of ids).
+4. **Write your problem**. You can follow the template structure.
 5. **Regenerate the README problem list** so it picks up your entry:
    ```bash
    pixi run readme
@@ -35,8 +35,7 @@ All commands below are run through `pixi run` so they use that environment.
 ## Data model
 
 - `data/authors.yaml` is the author directory. Problems reference authors by id, so a name or profile change is made in exactly one place.
-- `data/difficulties.yaml` is the problem difficulty scale.
 
 ## Licensing
 
-Problems are shared under a [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) license. Make sure to keep the author attribution line in each problem.
+Problems are shared under a [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) license. Attribution is listed via the `author` tag and [authors.yaml](data/authors.yaml).
