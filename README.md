@@ -8,8 +8,8 @@ An [online collection](https://stephane-caron.github.io/robotics-brain-teasers/)
 
 ## Problems
 
-- [Flexible rod](problems/flexible_rod.md) ([PDF](https://stephane-caron.github.io/robotics-brain-teasers/problems/flexible_rod.pdf))
-- [Humanoid hip workout](problems/humanoid_hip_workout.md) ([PDF](https://stephane-caron.github.io/robotics-brain-teasers/problems/humanoid_hip_workout.pdf))
+- Flexible rod ([PDF](https://stephane-caron.github.io/robotics-brain-teasers/problems/01_flexible_rod.pdf))
+- Humanoid hip workout ([PDF](https://stephane-caron.github.io/robotics-brain-teasers/problems/02_humanoid_hip_workout.pdf))
 
 ## Contributing
 
