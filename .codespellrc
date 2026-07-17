@@ -1,0 +1,2 @@
+[codespell]
+skip = .git,.pixi,build,pixi.lock,*.min.js,*.min.css,*.svg,*.pdf,LICENSE
