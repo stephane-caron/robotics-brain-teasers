@@ -4,7 +4,7 @@
 
 [![publish](https://img.shields.io/github/actions/workflow/status/stephane-caron/robotics-brain-teasers/gh-pages.yml?branch=main&label=publish)](https://stephane-caron.github.io/robotics-brain-teasers/)
 
-An [online collection](https://stephane-caron.github.io/robotics-brain-teasers/) of robotics problems, for learning and for fun.
+An collection of robotics problems, for learning and for fun.
 
 ## Problems
 
