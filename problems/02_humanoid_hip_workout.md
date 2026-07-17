@@ -1,6 +1,7 @@
-# Humanoid hip workout
-
-*Author:* [\@stephane-caron](https://github.com/stephane-caron)
+---
+author: stephane-caron
+title: Humanoid hip workout
+---
 
 Consider a humanoid robot in the following configuration:
 

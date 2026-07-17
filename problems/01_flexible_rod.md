@@ -1,10 +1,7 @@
 ---
 author: stephane-caron
-difficulty: graduate
+title: Flexible rod
 ---
-# Flexible rod
-
-*Author:* [\@stephane-caron](https://github.com/stephane-caron)
 
 Consider the flexible rod depicted in (A):
 
