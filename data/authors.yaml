@@ -1,0 +1,12 @@
+# List of problem authors.
+#
+# Each key is an author id referenced from a problem's tags (`author: <id>`).
+# Add yourself here when you author a problem.
+#
+#   <id>:
+#     name: Full Name
+#     github: https://github.com/<handle>
+
+stephane-caron:
+  name: Stéphane Caron
+  github: https://github.com/stephane-caron
