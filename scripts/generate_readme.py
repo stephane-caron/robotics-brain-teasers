@@ -41,7 +41,7 @@ def render_list(problems) -> str:
     lines = []
     for p in problems:
         pdf = f"{PAGES_BASE}/problems/{p.slug}.pdf"
-        lines.append(f"- [{p.title}](problems/{p.slug}.md) ([PDF]({pdf}))")
+        lines.append(f"- {p.title} ([PDF]({pdf}))")
     return "\n".join(lines)
 
 
