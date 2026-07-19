@@ -4,7 +4,7 @@ This repository is a collection of standalone problems written in Markdown with 
 
 ## Setup
 
-The toolchain (pandoc, the [Tectonic](https://tectonic-typesetting.github.io/) LaTeX engine, librsvg, Python and the linters) is pinned with [pixi](https://pixi.sh/). Install pixi, then let it take care of setting up the software for you:
+This project uses [pixi](https://pixi.sh/). Install pixi, then let it take care of setting up the toolchain for you:
 
 ```bash
 pixi install
